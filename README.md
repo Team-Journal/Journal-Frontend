@@ -1,2 +1,2 @@
-# dsm-jeomechu-frontend
-저메추 웹입니다.
+# dsm-dreamers-frontend
+꿈  웹입니다.
