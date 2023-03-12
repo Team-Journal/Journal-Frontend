@@ -1,2 +1,2 @@
-# dsm-dreamers-frontend
-꿈 일기장 웹입니다.
+# Journal-Frontend
+공유몽 웹입니다.
