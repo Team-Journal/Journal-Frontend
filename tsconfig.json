@@ -24,6 +24,6 @@
   "include": [
     "src",
     "src/components",
-    "src/svg.d.ts"
+    "svg.d.ts"
   ]
 }
