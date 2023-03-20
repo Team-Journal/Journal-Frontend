@@ -22,6 +22,8 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "src"
+    "src",
+    "src/components",
+    "src/svg.d.ts"
   ]
 }
