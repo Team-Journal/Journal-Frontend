@@ -2,6 +2,7 @@ import styled from "styled-components";
 import MainLogo from "../assets/svgs/header_logo.svg";
 import SearchLogo from "../assets/svgs/search_logo.svg";
 import MyPageLogo from "../assets/svgs/mypage_logo.svg";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -9,8 +10,12 @@ const Header = () => {
       <HeaderContainer>
         <img src={MainLogo} alt="로고 이미지" />
         <CategoryContainer>
-          <Categries>홈</Categries>
-          <Categries>커뮤니티</Categries>
+          <LinkStyle to="/">
+            <Categries>홈</Categries>
+          </LinkStyle>
+          <LinkStyle to="/community">
+            <Categries>커뮤니티</Categries>
+          </LinkStyle>
           <Categries>정보수정</Categries>
           <Categries>고객지원</Categries>
         </CategoryContainer>
@@ -24,6 +29,11 @@ const Header = () => {
 };
 
 export default Header;
+
+const LinkStyle = styled(Link)`
+  color: black;
+  text-decoration: none;
+`;
 
 const Categries = styled.li`
   font-size: 15px;
