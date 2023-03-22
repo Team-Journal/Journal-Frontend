@@ -1,12 +1,16 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import Header from "../../components/header";
-import AppLogo from '../../assets/svgs/app_logo.svg';
-import phone from '../../assets/svgs/phone.svg';
-
-
+import AppLogo from "../../assets/svgs/app_logo.svg";
+import phone from "../../assets/svgs/phone.svg";
+import { useNavigate } from "react-router-dom";
+import useTitle from '../../hooks/title';
 
 const Introduce = () => {
+  const navigate = useNavigate();
+
+  const titleUpdater = useTitle('불러오는 중...');
+  setTimeout(() => titleUpdater('공유몽 - Journals'))
 
   return (
     <Container>
@@ -21,7 +25,7 @@ const Introduce = () => {
             <img src={AppLogo} alt="앱 로고" />
           </Right>
         </FisrtSection>
-        <SecondSection>  
+        <SecondSection>
           <TextContainer>
             <FirstDesc>온라인 꿈 기록 커뮤니티 플랫폼</FirstDesc>
             <LogoText>공유몽</LogoText>
@@ -39,7 +43,7 @@ const Introduce = () => {
             <StartText>그럼 시작해볼까요?</StartText>
           </TextContainer>
           <br />
-          <StartBtn>둘러보기</StartBtn>
+          <StartBtn onClick={() => navigate("/community")}>둘러보기</StartBtn>
         </ThirdSection>
       </IntroduceContainer>
     </Container>
@@ -54,11 +58,11 @@ const StartBtn = styled.button`
   font-size: 20px;
   border-radius: 30px;
   border: none;
-  background-color: #ABB2EF;
+  background-color: #abb2ef;
   color: white;
   font-weight: 600;
   margin-top: 100px;
-`
+`;
 
 const easeIn = keyframes`
   0% {
@@ -68,42 +72,41 @@ const easeIn = keyframes`
   100% {
     opacity: 1;
   }
-`
+`;
 
 const StartText = styled.p`
   font-size: 55px;
   font-weight: 650;
   margin: 0;
-`
+`;
 
 const Phone = styled.img`
   width: 400px;
   height: 700px;
   margin-top: -150px;
-`
+`;
 
 const SecondDesc = styled.p`
   font-size: 20px;
   font-weight: 650;
-`
+`;
 
 const FirstDesc = styled.p`
   font-size: 40px;
-`
+`;
 
 const Right = styled.div`
   width: 300px;
   height: 300px;
   display: flex;
-
-`
+`;
 
 const LogoText = styled.p`
   font-size: 100px;
-  font-family: 'Dovemayo_gothic';
+  font-family: "Dovemayo_gothic";
   margin-top: -30px;
   animation: ${easeIn} 1.5s ease-in;
-`
+`;
 
 const Container = styled.div`
   width: 100%;
