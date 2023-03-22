@@ -18,7 +18,7 @@ const Signup = () => {
   )
 }
 
-export default Signup;
+export default Signup;  
 
 const FormContainer = styled.div`
   display: flex;
