@@ -4,7 +4,7 @@ import SearchLogo from "../assets/svgs/search_logo.svg";
 import MyPageLogo from "../assets/svgs/mypage_logo.svg";
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const MainHeader = () => {
   return (
     <>
       <HeaderContainer>
@@ -28,7 +28,7 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default MainHeader;
 
 const LinkStyle = styled(Link)`
   color: black;
