@@ -1,16 +1,16 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import Header from "../../components/header";
+import Header from "../../components/main-header";
 import AppLogo from "../../assets/svgs/app_logo.svg";
 import phone from "../../assets/svgs/phone.svg";
 import { useNavigate } from "react-router-dom";
-import useTitle from '../../hooks/title';
+import useTitle from "../../hooks/title";
 
 const Introduce = () => {
   const navigate = useNavigate();
 
-  const titleUpdater = useTitle('불러오는 중...');
-  setTimeout(() => titleUpdater('공유몽 - Journals'))
+  const titleUpdater = useTitle("불러오는 중...");
+  setTimeout(() => titleUpdater("공유몽 - Journals"));
 
   return (
     <Container>
@@ -62,6 +62,11 @@ const StartBtn = styled.button`
   color: white;
   font-weight: 600;
   margin-top: 100px;
+  transition: opacity 0.8s ease-in-out;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.7;
+  }
 `;
 
 const easeIn = keyframes`
