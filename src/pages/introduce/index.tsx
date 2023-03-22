@@ -43,7 +43,7 @@ const Introduce = () => {
             <StartText>그럼 시작해볼까요?</StartText>
           </TextContainer>
           <br />
-          <StartBtn onClick={() => navigate("/siguup")}>둘러보기</StartBtn>
+          <StartBtn onClick={() => navigate("/signup")}>둘러보기</StartBtn>
         </ThirdSection>
       </IntroduceContainer>
     </Container>
