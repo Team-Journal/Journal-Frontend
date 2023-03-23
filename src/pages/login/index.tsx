@@ -1,8 +1,12 @@
 import styled from 'styled-components'
 import LoginForm from '../../components/login';
 import MainHeader from '../../components/main-header'
+import useTitle from '../../hooks/title';
 
 const Login = () => {
+  const titleUpdater = useTitle('불러오는 중...');
+  setTimeout(() => titleUpdater('로그인 - 공유몽'))
+
   return (
     <div>
       <MainHeader />
