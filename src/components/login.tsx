@@ -32,6 +32,7 @@ const PasswordInput = styled.input`
   border-radius: 25px;
   font-size: 20px;
   padding-left: 27px;
+  outline: none;
 `;
 
 const EmailInput = styled.input`
@@ -44,6 +45,7 @@ const EmailInput = styled.input`
   border-radius: 25px;
   font-size: 20px;
   padding-left: 27px;
+  outline: none;
 `;
 
 const InputContaier = styled.div`
