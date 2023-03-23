@@ -56,6 +56,7 @@ const PasswordCheckInput = styled.input`
   font-size: 17px;
   padding-left: 22px;
   margin-top: 42px;
+  outline: none;
 `;
 
 const Container = styled.div`
@@ -71,6 +72,7 @@ const PasswordInput = styled.input`
   font-size: 17px;
   padding-left: 22px;
   margin-top: 42px;
+  outline: none;
 `;
 
 const VerifyCodeInput = styled.input`
@@ -89,6 +91,7 @@ const VerifyCodeInput = styled.input`
     -webkit-appearance: none;
     margin: 0;
   }
+  outline: none;
 `;
 
 const CodeSubmitBtn = styled.button`
@@ -111,6 +114,7 @@ const EmailInput = styled.input`
   border: 1px solid rgba(204, 204, 204, 1);
   font-size: 17px;
   padding-left: 22px;
+  outline: none;
 `;
 
 const EmailContainer = styled.div`
