@@ -18,11 +18,16 @@ const Signup = () => {
       <FormContainer>
         <SignupForm />
       </FormContainer>
+      <Space />
     </div>
   )
 }
 
 export default Signup;  
+
+const Space = styled.div`
+  height: 200px;
+`
 
 const FormContainer = styled.div`
   display: flex;
