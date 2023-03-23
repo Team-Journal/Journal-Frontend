@@ -1,8 +1,12 @@
 import styled from 'styled-components'
 import MainHeader from '../../components/main-header'
 import RegisterForm from '../../components/register';
+import useTitle from '../../hooks/title';
 
 const Register = () => {
+  const titleUpdater = useTitle('불러오는 중...');
+  setTimeout(() => titleUpdater('아이디(닉네임) 등록 - 공유몽'))
+
   return (
     <div>
       <MainHeader />
