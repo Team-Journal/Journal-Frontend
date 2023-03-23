@@ -2,8 +2,12 @@ import styled from 'styled-components';
 import MainHeader from '../../components/main-header';
 import text from '../../assets/svgs/text_logo.svg';
 import SignupForm from '../../components/signup';
+import useTitle from '../../hooks/title';
 
 const Signup = () => {
+  const titleUpdater = useTitle('불러오는 중...');
+  setTimeout(() => titleUpdater('회원가입 - 공유몽'))
+
   return (
     <div>
       <MainHeader />
