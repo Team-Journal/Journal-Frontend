@@ -5,12 +5,29 @@ import AppLogo from "../../assets/svgs/app_logo.svg";
 import phone from "../../assets/svgs/phone.svg";
 import { useNavigate } from "react-router-dom";
 import useTitle from "../../hooks/title";
+import { useState, useEffect, useRef } from "react";
 
 const Introduce = () => {
   const navigate = useNavigate();
 
   const titleUpdater = useTitle("불러오는 중...");
   setTimeout(() => titleUpdater("공유몽 - Journals"));
+
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      setIsVisible(entry.isIntersecting);
+    });
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    }
+  }, []);
 
   return (
     <Container>
@@ -25,7 +42,7 @@ const Introduce = () => {
             <img src={AppLogo} alt="앱 로고" />
           </Right>
         </FisrtSection>
-        <SecondSection>
+        <SecondSection isVisible={isVisible} ref={ref} >
           <TextContainer>
             <FirstDesc>온라인 꿈 기록 커뮤니티 플랫폼</FirstDesc>
             <LogoText>공유몽</LogoText>
@@ -140,13 +157,17 @@ const ThirdSection = styled.div`
   justify-content: center;
 `;
 
-const SecondSection = styled.div`
+const SecondSection = styled.div<{ isVisible: boolean }>`
   width: 1200px;
   height: 100vh;
   background-color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  transform: ${({ isVisible }) =>
+    isVisible ? "translateY(0)" : "translateY(50px)"};
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 `;
 
 const FisrtSection = styled.div`
