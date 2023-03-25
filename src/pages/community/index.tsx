@@ -1,8 +1,12 @@
 import MainHeader from "../../components/main-header";
 import SubHeader from "../../components/sub-header";
 import styled from "styled-components";
+import useTitle from '../../hooks/title';
 
 const Community = () => {
+  const titleUpdater = useTitle('불러오는 중...');
+  setTimeout(() => titleUpdater('커뮤니티 - 공유몽'));
+
   return (
     <div>
       <MainHeader />
