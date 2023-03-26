@@ -42,7 +42,7 @@ const Introduce = () => {
             <img src={AppLogo} alt="앱 로고" />
           </Right>
         </FisrtSection>
-        <SecondSection isVisible={isVisible} ref={ref} >
+        <SecondSection isVisible={isVisible} ref={ref}>
           <TextContainer>
             <FirstDesc>온라인 꿈 기록 커뮤니티 플랫폼</FirstDesc>
             <LogoText>공유몽</LogoText>
@@ -167,7 +167,7 @@ const SecondSection = styled.div<{ isVisible: boolean }>`
   opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
   transform: ${({ isVisible }) =>
     isVisible ? "translateY(0)" : "translateY(50px)"};
-  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+  transition: opacity 1.5s ease-in-out, transform 1s ease-in-out;
 `;
 
 const FisrtSection = styled.div`
