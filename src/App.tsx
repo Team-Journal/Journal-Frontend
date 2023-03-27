@@ -1,4 +1,3 @@
-import Search from 'antd/lib/transfer/search';
 import { BrowserRouter } from 'react-router-dom';
 import { Routes } from 'react-router-dom';
 import { Route } from 'react-router-dom';
@@ -6,6 +5,7 @@ import Community from './pages/community';
 import Introduce from './pages/introduce';
 import Login from './pages/login';
 import Register from './pages/register';
+import Search from './pages/search';
 import Signup from './pages/signup';
 
 const App: React.FC = () => {
