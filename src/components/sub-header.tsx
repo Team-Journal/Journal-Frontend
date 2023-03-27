@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { HeaderProps } from '../types/type';
+import { HeaderProps } from "../types/type";
+import { Link } from "react-router-dom";
 
 const SubHeader = ({ title, menu1, menu2, menu3 }: HeaderProps) => {
   return (
@@ -9,10 +10,14 @@ const SubHeader = ({ title, menu1, menu2, menu3 }: HeaderProps) => {
           <PageTitle>{title}</PageTitle>
         </TextContainer>
         <MenuContainer>
-            <Menu>{menu1}</Menu>
-            <Menu>{menu2}</Menu>
-            <Menu>{menu3}</Menu>
-            <LogoutBtn>로그아웃</LogoutBtn>
+          <Menu>{menu1}</Menu>
+          <Menu>
+            <LinkStyle to="/community">{menu2}</LinkStyle>
+          </Menu>
+          <Menu>
+            <LinkStyle to="/search">{menu3}</LinkStyle>
+          </Menu>
+          <LogoutBtn>로그아웃</LogoutBtn>
         </MenuContainer>
       </HeaderContainer>
     </>
@@ -21,27 +26,32 @@ const SubHeader = ({ title, menu1, menu2, menu3 }: HeaderProps) => {
 
 export default SubHeader;
 
+const LinkStyle = styled(Link)`
+  color: white;
+  text-decoration: none;
+`;
+
 const LogoutBtn = styled.button`
-    width: 65px;
-    height: 26px;
-    border: none;
-    border-radius: 45px;
-    background-color: rgba(171, 178, 239, 1);
-    color: white;
-`
+  width: 65px;
+  height: 26px;
+  border: none;
+  border-radius: 45px;
+  background-color: rgba(171, 178, 239, 1);
+  color: white;
+`;
 
 const Menu = styled.li`
-    font-size: 14px;
-    color: white;
-`
+  font-size: 14px;
+  color: white;
+`;
 
 const MenuContainer = styled.ul`
-    width: 365px;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-`
+  width: 365px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
 
 const TextContainer = styled.div``;
 
