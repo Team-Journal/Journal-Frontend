@@ -1,3 +1,4 @@
+import Search from 'antd/lib/transfer/search';
 import { BrowserRouter } from 'react-router-dom';
 import { Routes } from 'react-router-dom';
 import { Route } from 'react-router-dom';
@@ -16,6 +17,7 @@ const App: React.FC = () => {
                 <Route path="/signup" element={<Signup />}></Route>
                 <Route path="/login" element={<Login />}></Route>
                 <Route path="/register" element={<Register />}></Route>
+                <Route path="/search" element={<Search />}></Route>
             </Routes>
         </BrowserRouter>
     )
