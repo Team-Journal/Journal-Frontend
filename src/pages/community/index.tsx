@@ -17,7 +17,9 @@ const Community = () => {
         menu3="아이디 검색"
       />
       <Container>
-        <PageTitle>커뮤니티 둘러보기</PageTitle>
+        <SubContainer>
+          <PageTitle>커뮤니티 둘러보기</PageTitle>
+        </SubContainer>
       </Container>
     </div>
   );
@@ -25,14 +27,17 @@ const Community = () => {
 
 export default Community;
 
+const SubContainer = styled.div`
+  width: 1200px;
+`
+
 const Container = styled.div`
   display: flex;
+  justify-content: center;
 `;
 
 const PageTitle = styled.p`
   font-size: 35px;
   margin-top: 200px;
   font-weight: 650;
-  margin-left: 245px;
-  display: flex;
 `;
