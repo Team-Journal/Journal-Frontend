@@ -1,6 +1,12 @@
 import styled from "styled-components";
 import { SignupFormData } from "../types/type";
 import { useState } from "react";
+import { ErrorFormData } from "../types/type";
+
+const EmailRegex =
+  /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+
+const PassRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
 const SignupForm = () => {
   const [formData, setFormData] = useState<SignupFormData>({
@@ -8,6 +14,13 @@ const SignupForm = () => {
     password: "",
     confirmPassword: "",
     verifyCode: "",
+  });
+
+  const [errorData, setErrorData] = useState<ErrorFormData>({
+    emailError: false,
+    passwordError: false,
+    confirmPasswordError: false,
+    verifyCodeError: false,
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
