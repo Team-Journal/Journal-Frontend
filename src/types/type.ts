@@ -11,3 +11,10 @@ export interface SignupFormData {
     confirmPassword: string
     verifyCode: string
 }
+
+export interface ErrorFormData {
+    emailError: boolean
+    passwordError: boolean
+    confirmPasswordError: boolean
+    verifyCodeError: boolean
+}
