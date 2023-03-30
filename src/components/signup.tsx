@@ -28,6 +28,18 @@ const SignupForm = () => {
       ...formData,
       [e.target.name]: e.target.value,
     });
+
+    if (!e.target.value || EmailRegex.test(e.target.value)) {
+      setErrorData({
+        ...errorData,
+        emailError: false,
+      });
+    } else {
+      setErrorData({
+        ...errorData,
+        emailError: true,
+      });
+    }
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -49,6 +61,9 @@ const SignupForm = () => {
         />
         <CodeSubmitBtn>코드 발송</CodeSubmitBtn>
       </EmailContainer>
+      {errorData.emailError && (
+        <ErrorMessage>이메일 형식이 올바르지 않습니다.</ErrorMessage>
+      )}
       <Container>
         <VerifyCodeInput
           placeholder="인증 코드를 입력해주세요."
@@ -82,6 +97,11 @@ const SignupForm = () => {
 };
 
 export default SignupForm;
+
+const ErrorMessage = styled.div`
+  color: red;
+  margin-top: 10px;
+`;
 
 const BtnContainer = styled.div`
   width: 101px;
