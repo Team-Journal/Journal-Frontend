@@ -3,11 +3,6 @@ import { SignupFormData } from "../types/type";
 import { useState } from "react";
 import { ErrorFormData } from "../types/type";
 
-const EmailRegex =
-  /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
-
-const PassRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-
 const SignupForm = () => {
   const [formData, setFormData] = useState<SignupFormData>({
     email: "",
@@ -23,22 +18,41 @@ const SignupForm = () => {
     verifyCodeError: false,
   });
 
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const handleEmailCheck = () => {
+    const isValid = validateEmail(formData.email);
+    setErrorData((prev) => ({ ...prev, emailError: !isValid }));
+  };
+
+  const validatePassword = (password: string) => {
+    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    return passwordRegex.test(password);
+  };
+
+  const handlePasswordCheck = () => {
+    const isValid = validatePassword(formData.password);
+    setErrorData((prev) => ({ ...prev, passwordError: !isValid }));
+  };
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
+    handleEmailCheck();
 
-    if (!e.target.value || EmailRegex.test(e.target.value)) {
-      setErrorData({
-        ...errorData,
-        emailError: false,
-      });
+    if (e.target.name === "confirmPassword") {
+      if (formData.password !== e.target.value) {
+        setErrorData((prev) => ({ ...prev, confirmPasswordError: true }))
+      } else {
+        setErrorData((prev) => ({ ...prev, confirmPasswordError: false }))
+      }
     } else {
-      setErrorData({
-        ...errorData,
-        emailError: true,
-      });
+      handlePasswordCheck();
     }
   };
 
@@ -46,7 +60,7 @@ const SignupForm = () => {
     e.preventDefault();
     console.log(formData);
 
-    // 회원가입 처리 로직 구현 예정
+    // 회원가입 api 연동 로직 구현 예정
   };
 
   return (
@@ -62,7 +76,7 @@ const SignupForm = () => {
         <CodeSubmitBtn>코드 발송</CodeSubmitBtn>
       </EmailContainer>
       {errorData.emailError && (
-        <ErrorMessage>이메일 형식이 올바르지 않습니다.</ErrorMessage>
+        <ErrorMessage>이메일 형식과 일치하지 않습니다.</ErrorMessage>
       )}
       <Container>
         <VerifyCodeInput
@@ -81,6 +95,13 @@ const SignupForm = () => {
           value={formData.password}
           onChange={handleInputChange}
         />
+        {errorData.passwordError && (
+          <ErrorMessage>
+            {" "}
+            비밀번호는 8자 이상이어햐 하며, 문자와 숫자를 하나 이상
+            포함해야합니다.
+          </ErrorMessage>
+        )}
         <PasswordCheckInput
           placeholder="비밀번호를 다시 입력해주세요."
           type="password"
@@ -88,6 +109,7 @@ const SignupForm = () => {
           value={formData.confirmPassword}
           onChange={handleInputChange}
         />
+        {errorData.confirmPasswordError && <ErrorMessage>입력한 비밀번호와 일치하지 않습니다.</ErrorMessage>}
         <BtnContainer>
           <ContinueBtn type="submit">계속</ContinueBtn>
         </BtnContainer>
