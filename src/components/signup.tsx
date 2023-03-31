@@ -76,7 +76,7 @@ const SignupForm = () => {
         <CodeSubmitBtn>코드 발송</CodeSubmitBtn>
       </EmailContainer>
       {errorData.emailError && (
-        <ErrorMessage>이메일 형식과 일치하지 않습니다.</ErrorMessage>
+        <ErrorMessage>올바른 이메일 형식을 입력해주세요!</ErrorMessage>
       )}
       <Container>
         <VerifyCodeInput
@@ -99,7 +99,7 @@ const SignupForm = () => {
           <ErrorMessage>
             {" "}
             비밀번호는 8자 이상이어햐 하며, 문자와 숫자를 하나 이상
-            포함해야합니다.
+            포함해야해요!
           </ErrorMessage>
         )}
         <PasswordCheckInput
@@ -109,7 +109,7 @@ const SignupForm = () => {
           value={formData.confirmPassword}
           onChange={handleInputChange}
         />
-        {errorData.confirmPasswordError && <ErrorMessage>입력한 비밀번호와 일치하지 않습니다.</ErrorMessage>}
+        {errorData.confirmPasswordError && <ErrorMessage>입력한 비밀번호와 일치하지 않아요!</ErrorMessage>}
         <BtnContainer>
           <ContinueBtn type="submit">계속</ContinueBtn>
         </BtnContainer>
