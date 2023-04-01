@@ -10,7 +10,9 @@ const SubHeader = ({ title, menu1, menu2, menu3 }: HeaderProps) => {
           <PageTitle>{title}</PageTitle>
         </TextContainer>
         <MenuContainer>
-          <Menu>{menu1}</Menu>
+          <Menu>
+            <LinkStyle to="/post">{menu1}</LinkStyle>
+          </Menu>
           <Menu>
             <LinkStyle to="/community">{menu2}</LinkStyle>
           </Menu>
