@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import MainHeader from "../../components/main-header";
+import WritePostForm from '../../components/post';
 import SubHeader from "../../components/sub-header";
 
 const WritePost = () => {
@@ -15,6 +16,7 @@ const WritePost = () => {
       <Container>
         <SubContainer>
             <PageTitle>새 게시물 작성하기</PageTitle>
+            <WritePostForm />
         </SubContainer>
       </Container>
     </div>
