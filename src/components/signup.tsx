@@ -127,8 +127,6 @@ const SignupForm = () => {
         <VerifyCodeInput
           placeholder="인증 코드를 입력해주세요."
           type="number"
-          autoFocus
-          required
           name="verifyCode"
           value={formData.verifyCode}
           onChange={handleInputChange}
