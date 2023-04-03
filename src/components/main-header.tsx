@@ -3,12 +3,19 @@ import MainLogo from "../assets/svgs/header_logo.svg";
 import SearchLogo from "../assets/svgs/search_logo.svg";
 import MyPageLogo from "../assets/svgs/mypage_logo.svg";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const MainHeader = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <HeaderContainer>
-        <img src={MainLogo} alt="로고 이미지" />
+        <MainLogoImage
+          src={MainLogo}
+          alt="메인 로고"
+          onClick={() => navigate("/")}
+        />
         <CategoryContainer>
           <LinkStyle to="/">
             <Categries>홈</Categries>
@@ -29,6 +36,10 @@ const MainHeader = () => {
 };
 
 export default MainHeader;
+
+const MainLogoImage = styled.img`
+  cursor: pointer;
+`;
 
 const LinkStyle = styled(Link)`
   color: black;
@@ -53,7 +64,6 @@ const HeaderContainer = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  position: fixed;
   background-color: white;
 `;
 

@@ -67,10 +67,10 @@ const PageTitle = styled.p`
 const HeaderContainer = styled.nav`
   width: 100%;
   height: 58px;
+  position: sticky;
+  top: 0px;
   background-color: black;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  position: fixed;
-  margin-top: 48px;
 `;
