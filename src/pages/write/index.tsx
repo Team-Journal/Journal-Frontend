@@ -2,8 +2,12 @@ import styled from "styled-components";
 import MainHeader from "../../components/main-header";
 import WritePostForm from '../../components/post';
 import SubHeader from "../../components/sub-header";
+import useTitle from '../../hooks/title';
 
 const WritePost = () => {
+  const titleUpdater = useTitle('불러오는 중...');
+  setTimeout(() => titleUpdater('게시물 업로드 - 공유몽'))
+
   return (
     <div>
       <MainHeader />
