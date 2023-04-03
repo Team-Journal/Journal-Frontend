@@ -2,8 +2,13 @@ import styled from "styled-components";
 import { SignupFormData } from "../types/type";
 import { useState } from "react";
 import { ErrorFormData } from "../types/type";
+import signUp from '../api';
 
-const SignupForm = () => {
+interface SignupFormProps {
+  onSubmit: (formData: SignupFormData) => void;
+}
+
+const SignupForm = ({ onSubmit }: SignupFormProps) => {
   const [formData, setFormData] = useState<SignupFormData>({
     email: "",
     password: "",
@@ -97,7 +102,7 @@ const SignupForm = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(formData);
 
@@ -105,7 +110,12 @@ const SignupForm = () => {
       return alert('회원가입에 실패했어요.')
     }
 
-    // 회원가입 api 연동 로직 구현 예정
+    try {
+      const result = await signUp(formData);
+      console.log(result);
+    } catch (error) {
+      console.log(error)
+    }
   };
 
   return (
