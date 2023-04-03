@@ -47,18 +47,63 @@ const SignupForm = () => {
 
     if (e.target.name === "confirmPassword") {
       if (formData.password !== e.target.value) {
-        setErrorData((prev) => ({ ...prev, confirmPasswordError: true }))
+        setErrorData((prev) => ({ ...prev, confirmPasswordError: true }));
       } else {
-        setErrorData((prev) => ({ ...prev, confirmPasswordError: false }))
+        setErrorData((prev) => ({ ...prev, confirmPasswordError: false }));
       }
     } else {
       handlePasswordCheck();
     }
   };
 
+  const validation = () => {
+    if (!formData.email) {
+      setErrorData({
+        ...errorData,
+        emailError: true,
+      });
+    }
+
+    if (!formData.password) {
+      setErrorData({
+        ...errorData,
+        passwordError: true,
+      });
+    }
+
+    if (!formData.confirmPassword) {
+      setErrorData({
+        ...errorData,
+        confirmPasswordError: true,
+      });
+    }
+
+    if (!formData.verifyCode) {
+      setErrorData({
+        ...errorData,
+        verifyCodeError: true,
+      });
+    }
+
+    if (
+      formData.email &&
+      formData.password &&
+      formData.confirmPassword &&
+      formData.verifyCode
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(formData);
+
+    if (!validation()) {
+      return alert('회원가입에 실패했어요.')
+    }
 
     // 회원가입 api 연동 로직 구현 예정
   };
@@ -109,7 +154,9 @@ const SignupForm = () => {
           value={formData.confirmPassword}
           onChange={handleInputChange}
         />
-        {errorData.confirmPasswordError && <ErrorMessage>입력한 비밀번호와 일치하지 않아요!</ErrorMessage>}
+        {errorData.confirmPasswordError && (
+          <ErrorMessage>입력한 비밀번호와 일치하지 않아요!</ErrorMessage>
+        )}
         <BtnContainer>
           <ContinueBtn type="submit">계속</ContinueBtn>
         </BtnContainer>
