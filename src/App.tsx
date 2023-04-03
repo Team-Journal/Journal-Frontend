@@ -7,6 +7,7 @@ import Login from './pages/login';
 import Register from './pages/register';
 import Search from './pages/search';
 import Signup from './pages/signup';
+import WritePost from './pages/write';
 
 const App: React.FC = () => {
     return (
@@ -18,6 +19,7 @@ const App: React.FC = () => {
                 <Route path="/login" element={<Login />}></Route>
                 <Route path="/register" element={<Register />}></Route>
                 <Route path="/search" element={<Search />}></Route>
+                <Route path="/post" element={<WritePost />}></Route>
             </Routes>
         </BrowserRouter>
     )
