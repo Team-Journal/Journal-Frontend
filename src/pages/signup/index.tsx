@@ -3,7 +3,6 @@ import MainHeader from '../../components/main-header';
 import text from '../../assets/svgs/text_logo.svg';
 import SignupForm from '../../components/signup';
 import useTitle from '../../hooks/title';
-import { SignupFormData } from '../../types/type';
 
 const Signup = () => {
   const titleUpdater = useTitle('불러오는 중...');
@@ -17,9 +16,7 @@ const Signup = () => {
         <Desc>공유몽에 가입하면 더 많은 혜택을 누릴 수 있어요!</Desc>
       </Container>
       <FormContainer>
-        <SignupForm onSubmit={function (formData: SignupFormData): void {
-          throw new Error('Function not implemented.');
-        } } />
+        <SignupForm />
       </FormContainer>
       <Space />
     </div>
