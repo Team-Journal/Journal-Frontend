@@ -2,13 +2,10 @@ import styled from "styled-components";
 import { SignupFormData } from "../types/type";
 import { useState } from "react";
 import { ErrorFormData } from "../types/type";
-import signUp from '../api';
+import signUp from '../api/signup';
 
-interface SignupFormProps {
-  onSubmit: (formData: SignupFormData) => void;
-}
 
-const SignupForm = ({ onSubmit }: SignupFormProps) => {
+const SignupForm = () => {
   const [formData, setFormData] = useState<SignupFormData>({
     email: "",
     password: "",
@@ -111,7 +108,7 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
     }
 
     try {
-      const result = await signUp(formData);
+      const result = await signUp(formData.email, formData.password);
       console.log(result);
     } catch (error) {
       console.log(error)
