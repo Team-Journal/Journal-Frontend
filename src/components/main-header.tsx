@@ -27,7 +27,11 @@ const MainHeader = () => {
           <Categries>고객지원</Categries>
         </CategoryContainer>
         <Right>
-          <img src={SearchLogo} alt="검색 로고" />
+          <SearchImage
+            src={SearchLogo}
+            alt="검색 로고"
+            onClick={() => navigate("/search")}
+          />
           <img src={MyPageLogo} alt="마이페이지 로고" />
         </Right>
       </HeaderContainer>
@@ -36,6 +40,10 @@ const MainHeader = () => {
 };
 
 export default MainHeader;
+
+const SearchImage = styled.img`
+  cursor: pointer;
+`
 
 const MainLogoImage = styled.img`
   cursor: pointer;
