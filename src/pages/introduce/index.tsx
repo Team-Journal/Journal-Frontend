@@ -166,8 +166,8 @@ const SecondSection = styled.div<{ isVisible: boolean }>`
   justify-content: space-between;
   opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
   transform: ${({ isVisible }) =>
-    isVisible ? "translateY(0)" : "translateY(50px)"};
-  transition: opacity 1.5s ease-in-out, transform 1s ease-in-out;
+    isVisible ? "translateY(0)" : "translateY(100px)"};
+  transition: opacity 1s ease-in-out, transform 2s ease-in-out;
 `;
 
 const FisrtSection = styled.div`
