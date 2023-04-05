@@ -7,68 +7,6 @@ import { useNavigate } from "react-router-dom";
 import useTitle from "../../hooks/title";
 import { useState, useEffect, useRef } from "react";
 
-const Introduce = () => {
-  const navigate = useNavigate();
-
-  const titleUpdater = useTitle("불러오는 중...");
-  setTimeout(() => titleUpdater("공유몽 - Journals"));
-
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      setIsVisible(entry.isIntersecting);
-    });
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => {
-      observer.disconnect();
-    }
-  }, []);
-
-  return (
-    <Container>
-      <Header />
-      <IntroduceContainer>
-        <FisrtSection>
-          <TextContainer>
-            <Info>꿈을 기록하다.</Info>
-            <LogoText>공유몽</LogoText>
-          </TextContainer>
-          <Right>
-            <img src={AppLogo} alt="앱 로고" />
-          </Right>
-        </FisrtSection>
-        <SecondSection isVisible={isVisible} ref={ref}>
-          <TextContainer>
-            <FirstDesc>온라인 꿈 기록 커뮤니티 플랫폼</FirstDesc>
-            <LogoText>공유몽</LogoText>
-            <SecondDesc>
-              나만의 특별한 기억을 적을 수 있어요! <br /> <br />
-              친구들과 소통해 꿈을 극대화 해보세요!
-            </SecondDesc>
-          </TextContainer>
-          <Right>
-            <Phone src={phone} alt="공유몽 모바일" />
-          </Right>
-        </SecondSection>
-        <ThirdSection>
-          <TextContainer>
-            <StartText>그럼 시작해볼까요?</StartText>
-          </TextContainer>
-          <br />
-          <StartBtn onClick={() => navigate("/signup")}>둘러보기</StartBtn>
-        </ThirdSection>
-      </IntroduceContainer>
-    </Container>
-  );
-};
-
-export default Introduce;
-
 const StartBtn = styled.button`
   width: 170px;
   height: 60px;
@@ -177,3 +115,65 @@ const FisrtSection = styled.div`
   align-items: center;
   justify-content: space-between;
 `;
+
+const Introduce = () => {
+  const navigate = useNavigate();
+
+  const titleUpdater = useTitle("불러오는 중...");
+  setTimeout(() => titleUpdater("공유몽 - Journals"));
+
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      setIsVisible(entry.isIntersecting);
+    });
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  return (
+    <Container>
+      <Header />
+      <IntroduceContainer>
+        <FisrtSection>
+          <TextContainer>
+            <Info>꿈을 기록하다.</Info>
+            <LogoText>공유몽</LogoText>
+          </TextContainer>
+          <Right>
+            <img src={AppLogo} alt="앱 로고" />
+          </Right>
+        </FisrtSection>
+        <SecondSection isVisible={isVisible} ref={ref}>
+          <TextContainer>
+            <FirstDesc>온라인 꿈 기록 커뮤니티 플랫폼</FirstDesc>
+            <LogoText>공유몽</LogoText>
+            <SecondDesc>
+              나만의 특별한 기억을 적을 수 있어요! <br /> <br />
+              친구들과 소통해 꿈을 극대화 해보세요!
+            </SecondDesc>
+          </TextContainer>
+          <Right>
+            <Phone src={phone} alt="공유몽 모바일" />
+          </Right>
+        </SecondSection>
+        <ThirdSection>
+          <TextContainer>
+            <StartText>그럼 시작해볼까요?</StartText>
+          </TextContainer>
+          <br />
+          <StartBtn onClick={() => navigate("/signup")}>둘러보기</StartBtn>
+        </ThirdSection>
+      </IntroduceContainer>
+    </Container>
+  );
+};
+
+export default Introduce;
