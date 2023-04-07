@@ -32,7 +32,11 @@ const MainHeader = () => {
             alt="검색 로고"
             onClick={() => navigate("/search")}
           />
-          <img src={MyPageLogo} alt="마이페이지 로고" />
+          <ProfileImage
+            src={MyPageLogo}
+            alt="마이페이지 로고"
+            onClick={() => navigate("/mypage")}
+          />
         </Right>
       </HeaderContainer>
     </>
@@ -41,9 +45,13 @@ const MainHeader = () => {
 
 export default MainHeader;
 
+const ProfileImage = styled.img`
+  cursor: pointer;
+`;
+
 const SearchImage = styled.img`
   cursor: pointer;
-`
+`;
 
 const MainLogoImage = styled.img`
   cursor: pointer;
