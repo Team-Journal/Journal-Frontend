@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom';
 import Community from './pages/community';
 import Introduce from './pages/introduce';
 import Login from './pages/login';
+import MyPage from './pages/mypage';
 import Register from './pages/register';
 import Search from './pages/search';
 import Signup from './pages/signup';
@@ -20,6 +21,7 @@ const App: React.FC = () => {
                 <Route path="/register" element={<Register />}></Route>
                 <Route path="/search" element={<Search />}></Route>
                 <Route path="/post" element={<WritePost />}></Route>
+                <Route path="/mypage" element={<MyPage />}></Route>
             </Routes>
         </BrowserRouter>
     )
