@@ -106,12 +106,11 @@ const SignupForm = () => {
     if (!validation()) {
       return alert('회원가입에 실패했어요.')
     }
-
     try {
-      const result = await signUp(formData.email, formData.password);
-      console.log(result);
+      await signUp(formData.email, formData.password);
+      alert('공유몽에 가입하신걸 환영해요!')
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   };
 
