@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { HeaderProps } from "../types/type";
 import { Link } from "react-router-dom";
 
-const SubHeader = ({ title, menu1, menu2, menu3 }: HeaderProps) => {
+const SubHeader = ({ title }: HeaderProps) => {
   return (
     <>
       <HeaderContainer>
@@ -11,13 +11,13 @@ const SubHeader = ({ title, menu1, menu2, menu3 }: HeaderProps) => {
         </TextContainer>
         <MenuContainer>
           <Menu>
-            <LinkStyle to="/post">{menu1}</LinkStyle>
+            <LinkStyle to="/post">커뮤니티에 업로드</LinkStyle>
           </Menu>
           <Menu>
-            <LinkStyle to="/community">{menu2}</LinkStyle>
+            <LinkStyle to="/community">둘러보기</LinkStyle>
           </Menu>
           <Menu>
-            <LinkStyle to="/search">{menu3}</LinkStyle>
+            <LinkStyle to="/search">아이디 검색</LinkStyle>
           </Menu>
           <LogoutBtn>로그아웃</LogoutBtn>
         </MenuContainer>
