@@ -1,21 +1,16 @@
 import MainHeader from "../../components/main-header";
 import SubHeader from "../../components/sub-header";
 import styled from "styled-components";
-import useTitle from '../../hooks/title';
+import useTitle from "../../hooks/title";
 
 const Community = () => {
-  const titleUpdater = useTitle('불러오는 중...');
-  setTimeout(() => titleUpdater('커뮤니티 - 공유몽'));
+  const titleUpdater = useTitle("불러오는 중...");
+  setTimeout(() => titleUpdater("커뮤니티 - 공유몽"));
 
   return (
     <div>
       <MainHeader />
-      <SubHeader
-        title="커뮤니티"
-        menu1="커뮤니티에 업로드"
-        menu2="둘러보기"
-        menu3="아이디 검색"
-      />
+      <SubHeader title="커뮤니티" />
       <Container>
         <SubContainer>
           <PageTitle>커뮤니티 둘러보기</PageTitle>
@@ -29,7 +24,7 @@ export default Community;
 
 const SubContainer = styled.div`
   width: 1200px;
-`
+`;
 
 const Container = styled.div`
   display: flex;

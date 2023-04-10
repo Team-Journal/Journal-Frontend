@@ -1,22 +1,17 @@
 import styled from "styled-components";
 import MainHeader from "../../components/main-header";
-import SearchForm from '../../components/search';
+import SearchForm from "../../components/search";
 import SubHeader from "../../components/sub-header";
-import useTitle from '../../hooks/title';
+import useTitle from "../../hooks/title";
 
 const Search = () => {
-  const titleUpdater = useTitle('불러오는 중...');
-  setTimeout(() => titleUpdater('아이디 검색 - 공유몽'))
+  const titleUpdater = useTitle("불러오는 중...");
+  setTimeout(() => titleUpdater("아이디 검색 - 공유몽"));
 
   return (
     <div>
       <MainHeader />
-      <SubHeader
-        title="커뮤니티"
-        menu1="커뮤니티에 업로드"
-        menu2="둘러보기"
-        menu3="아이디 검색"
-      />
+      <SubHeader title="커뮤니티" />
       <Container>
         <SubContainer>
           <PageTitle>아이디를 검색해 친구를 추가해보세요.</PageTitle>
