@@ -1,4 +1,4 @@
-import * as S from './style';
+import * as S from './style'
 import { SignupFormData } from "../../types/type";
 import { useState } from "react";
 import { ErrorFormData } from "../../types/type";
