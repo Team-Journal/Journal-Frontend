@@ -1,9 +1,8 @@
-import styled from "styled-components";
-import { SignupFormData } from "../types/type";
+import * as S from './style';
+import { SignupFormData } from "../../types/type";
 import { useState } from "react";
-import { ErrorFormData } from "../types/type";
-import signUp from '../api/signup';
-
+import { ErrorFormData } from "../../types/type";
+import signUp from "../../api/signup";
 
 const SignupForm = () => {
   const [formData, setFormData] = useState<SignupFormData>({
@@ -104,11 +103,11 @@ const SignupForm = () => {
     console.log(formData);
 
     if (!validation()) {
-      return alert('회원가입에 실패했어요.')
+      return alert("회원가입에 실패했어요.");
     }
     try {
       await signUp(formData.email, formData.password);
-      alert('공유몽에 가입하신걸 환영해요!')
+      alert("공유몽에 가입하신걸 환영해요!");
     } catch (error) {
       console.log(error);
     }
@@ -116,28 +115,28 @@ const SignupForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <EmailContainer>
-        <EmailInput
+      <S.EmailContainer>
+        <S.EmailInput
           placeholder="name@example.com"
           type="email"
           name="email"
           value={formData.email}
           onChange={handleInputChange}
         />
-        <CodeSubmitBtn>코드 발송</CodeSubmitBtn>
-      </EmailContainer>
+        <S.CodeSubmitBtn>코드 발송</S.CodeSubmitBtn>
+      </S.EmailContainer>
       {errorData.emailError && (
-        <ErrorMessage>올바른 이메일 형식을 입력해주세요!</ErrorMessage>
+        <S.ErrorMessage>올바른 이메일 형식을 입력해주세요!</S.ErrorMessage>
       )}
-      <Container>
-        <VerifyCodeInput
+      <S.Container>
+        <S.VerifyCodeInput
           placeholder="인증 코드를 입력해주세요."
           type="number"
           name="verifyCode"
           value={formData.verifyCode}
           onChange={handleInputChange}
         />
-        <PasswordInput
+        <S.PasswordInput
           placeholder="비밀번호를 입력해주세요."
           type="password"
           name="password"
@@ -145,13 +144,13 @@ const SignupForm = () => {
           onChange={handleInputChange}
         />
         {errorData.passwordError && (
-          <ErrorMessage>
+          <S.ErrorMessage>
             {" "}
             비밀번호는 8자 이상이어햐 하며, 문자와 숫자를 하나 이상
             포함해야해요!
-          </ErrorMessage>
+          </S.ErrorMessage>
         )}
-        <PasswordCheckInput
+        <S.PasswordCheckInput
           placeholder="비밀번호를 다시 입력해주세요."
           type="password"
           name="confirmPassword"
@@ -159,113 +158,15 @@ const SignupForm = () => {
           onChange={handleInputChange}
         />
         {errorData.confirmPasswordError && (
-          <ErrorMessage>입력한 비밀번호와 일치하지 않아요!</ErrorMessage>
+          <S.ErrorMessage>입력한 비밀번호와 일치하지 않아요!</S.ErrorMessage>
         )}
-        <BtnContainer>
-          <ContinueBtn type="submit">계속</ContinueBtn>
-        </BtnContainer>
-      </Container>
+        <S.BtnContainer>
+          <S.ContinueBtn type="submit">계속</S.ContinueBtn>
+        </S.BtnContainer>
+      </S.Container>
     </form>
   );
 };
 
 export default SignupForm;
 
-const ErrorMessage = styled.div`
-  color: red;
-  margin-top: 10px;
-`;
-
-const BtnContainer = styled.div`
-  width: 101px;
-  height: 55px;
-  margin: 0 auto;
-`;
-
-const ContinueBtn = styled.button`
-  width: 101px;
-  height: 55px;
-  background-color: rgba(171, 178, 239, 1);
-  font-size: 20px;
-  border-radius: 7px;
-  color: white;
-  border: none;
-  font-weight: 600;
-  margin-top: 100px;
-  cursor: pointer;
-`;
-
-const PasswordCheckInput = styled.input`
-  width: 492px;
-  height: 61px;
-  border-radius: 5px;
-  border: 1px solid rgba(204, 204, 204, 1);
-  font-size: 17px;
-  padding-left: 22px;
-  margin-top: 42px;
-  outline: none;
-`;
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const PasswordInput = styled.input`
-  width: 492px;
-  height: 61px;
-  border-radius: 5px;
-  border: 1px solid rgba(204, 204, 204, 1);
-  font-size: 17px;
-  padding-left: 22px;
-  margin-top: 42px;
-  outline: none;
-`;
-
-const VerifyCodeInput = styled.input`
-  width: 492px;
-  height: 61px;
-  border-radius: 5px;
-  border: 1px solid rgba(204, 204, 204, 1);
-  font-size: 17px;
-  padding-left: 22px;
-  margin-top: 42px;
-  ::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-  ::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-  outline: none;
-`;
-
-const CodeSubmitBtn = styled.button`
-  width: 107px;
-  height: 61px;
-  margin-left: 21px;
-  border-radius: 7px;
-  border: none;
-  background-color: rgba(171, 178, 239, 1);
-  color: white;
-  font-size: 18px;
-  font-weight: 600;
-  cursor: pointer;
-`;
-
-const EmailInput = styled.input`
-  width: 364px;
-  height: 61px;
-  border-radius: 5px;
-  border: 1px solid rgba(204, 204, 204, 1);
-  font-size: 17px;
-  padding-left: 22px;
-  outline: none;
-`;
-
-const EmailContainer = styled.div`
-  width: 492px;
-  height: 61px;
-  display: flex;
-`;
