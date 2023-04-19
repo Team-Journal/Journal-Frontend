@@ -1,12 +1,12 @@
-import styled from 'styled-components';
-import MainHeader from '../../components/main-header';
-import text from '../../assets/svgs/text_logo.svg';
-import SignupForm from '../../components/signup';
-import useTitle from '../../hooks/title';
+import styled from "styled-components";
+import MainHeader from "../../components/main-header";
+import text from "../../assets/svgs/text_logo.svg";
+import SignupForm from "../../components/Signup";
+import useTitle from "../../hooks/title";
 
 const Signup = () => {
-  const titleUpdater = useTitle('불러오는 중...');
-  setTimeout(() => titleUpdater('회원가입 - 공유몽'))
+  const titleUpdater = useTitle("불러오는 중...");
+  setTimeout(() => titleUpdater("회원가입 - 공유몽"));
 
   return (
     <div>
@@ -20,31 +20,31 @@ const Signup = () => {
       </FormContainer>
       <Space />
     </div>
-  )
-}
+  );
+};
 
-export default Signup;  
+export default Signup;
 
 const Space = styled.div`
   height: 200px;
-`
+`;
 
 const FormContainer = styled.div`
   display: flex;
   margin-top: 300px;
   justify-content: center;
-`
+`;
 
 const Desc = styled.p`
   font-size: 20px;
-`
+`;
 
 const TextImage = styled.img`
   margin-top: 129px;
-`
+`;
 
 const Container = styled.div`
   width: 392px;
   height: 75px;
   margin: 0 auto;
-`
+`;
