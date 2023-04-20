@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import LoginForm from '../../components/login';
+import LoginForm from '../../components/Login/login';
 import MainHeader from '../../components/main-header'
 import useTitle from '../../hooks/title';
 
