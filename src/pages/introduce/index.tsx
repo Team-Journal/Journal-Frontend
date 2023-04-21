@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import Header from "../../components/main-header";
+import Header from "../../components/MainHeader";
 import AppLogo from "../../assets/svgs/app_logo.svg";
 import phone from "../../assets/svgs/phone.svg";
 import { useNavigate } from "react-router-dom";

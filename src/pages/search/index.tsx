@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import MainHeader from "../../components/main-header";
+import MainHeader from "../../components/MainHeader";
 import SearchForm from "../../components/search";
 import SubHeader from "../../components/sub-header";
 import useTitle from "../../hooks/title";

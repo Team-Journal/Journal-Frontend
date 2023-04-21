@@ -1,11 +1,11 @@
-import styled from 'styled-components'
-import MainHeader from '../../components/main-header'
-import RegisterForm from '../../components/register';
-import useTitle from '../../hooks/title';
+import styled from "styled-components";
+import MainHeader from "../../components/MainHeader";
+import RegisterForm from "../../components/register";
+import useTitle from "../../hooks/title";
 
 const Register = () => {
-  const titleUpdater = useTitle('불러오는 중...');
-  setTimeout(() => titleUpdater('아이디(닉네임) 등록 - 공유몽'))
+  const titleUpdater = useTitle("불러오는 중...");
+  setTimeout(() => titleUpdater("아이디(닉네임) 등록 - 공유몽"));
 
   return (
     <div>
@@ -18,8 +18,8 @@ const Register = () => {
         </FormContainer>
       </Container>
     </div>
-  )
-}
+  );
+};
 
 export default Register;
 
@@ -27,7 +27,7 @@ const FormContainer = styled.div`
   display: flex;
   margin-top: 180px;
   justify-content: center;
-`
+`;
 
 const Desc = styled.p`
   font-size: 20px;
@@ -36,7 +36,7 @@ const Desc = styled.p`
   justify-content: center;
   margin-top: -20px;
   margin-left: 20px;
-`
+`;
 
 const RegisterTitle = styled.p`
   font-size: 45px;
@@ -44,7 +44,7 @@ const RegisterTitle = styled.p`
   margin-top: 157px;
   display: flex;
   justify-content: center;
-`
+`;
 
 const Container = styled.div`
   display: flex;
@@ -52,4 +52,4 @@ const Container = styled.div`
   height: 66px;
   margin: 0 auto;
   flex-direction: column;
-`
+`;

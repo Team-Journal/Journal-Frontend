@@ -1,4 +1,4 @@
-import MainHeader from "../../components/main-header";
+import MainHeader from "../../components/MainHeader";
 import SubHeader from "../../components/sub-header";
 import styled from "styled-components";
 import useTitle from "../../hooks/title";

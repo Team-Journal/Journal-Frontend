@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import MainHeader from "../../components/main-header";
+import MainHeader from "../../components/MainHeader";
 import text from "../../assets/svgs/text_logo.svg";
 import SignupForm from "../../components/Signup";
 import useTitle from "../../hooks/title";
