@@ -4,27 +4,36 @@ import { LoginFormData } from "../../types/type";
 import { useState } from "react";
 import logIn from '../../api/login';
 import { useNavigate } from 'react-router-dom';
+import useStore from '../../store/store';
 
 const LoginForm = () => {
   const [formData, setFormData] = useState<LoginFormData>({
     email: "",
     password: "",
   });
+
+  const { isLogin, toggleIsLogin } = useStore();
+
   const [error, setError] = useState<string | undefined | null>(null);
+  const [state, setState] = useState<boolean>(isLogin)
   const navigate = useNavigate();
+
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    toggleIsLogin();
 
     try {
       await logIn(formData.email, formData.password)
       setError(null)
+      setState(isLogin)
       navigate('/community')
     } catch (error: any) {
       console.log(error);
       setError(error.response.data.message)
     }
     console.log(formData);
+    console.log(isLogin)
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
