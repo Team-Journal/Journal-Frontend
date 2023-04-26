@@ -39,3 +39,9 @@ export const InputContaier = styled.div`
   border-radius: 25px;
   flex-direction: column;
 `;
+
+export const Button = styled.button`
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+`
