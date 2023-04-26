@@ -10,6 +10,7 @@ const LoginForm = () => {
     email: "",
     password: "",
   });
+  const [error, setError] = useState<string | undefined | null>(null);
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -17,9 +18,11 @@ const LoginForm = () => {
 
     try {
       await logIn(formData.email, formData.password)
+      setError(null)
       navigate('/community')
-    } catch (error) {
+    } catch (error: any) {
       console.log(error);
+      setError(error.response.data.message)
     }
     console.log(formData);
   };
@@ -52,6 +55,7 @@ const LoginForm = () => {
           </S.Button>
         </S.ConfirmBtnContainer>
       </S.InputContaier>
+      {error && <div>{error}</div>}
     </form>
   );
 };
