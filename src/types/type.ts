@@ -15,3 +15,8 @@ export interface ErrorFormData {
     confirmPasswordError: boolean
     verifyCodeError: boolean
 }
+
+export interface LoginFormData {
+    email: string
+    password: string
+}
