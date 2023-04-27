@@ -15,18 +15,16 @@ const LoginForm = () => {
   const { isLogin, toggleIsLogin } = useStore();
 
   const [error, setError] = useState<string | undefined | null>(null);
-  const [state, setState] = useState<boolean>(isLogin)
   const navigate = useNavigate();
 
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    toggleIsLogin();
 
     try {
       await logIn(formData.email, formData.password)
       setError(null)
-      setState(isLogin)
+      toggleIsLogin();
       navigate('/community')
     } catch (error: any) {
       console.log(error);
